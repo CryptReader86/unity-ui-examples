@@ -3,39 +3,52 @@ using UnityEngine;
 public class ShowHidePanels : MonoBehaviour
 {
     public CanvasGroup inventory;
+    public CanvasGroup pause;
+
     private void Start()
     {
-        HideInventory();
+        HidePanel(inventory);
+        HidePanel(pause);
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.I))
         {
-            if(IsInventoryVisible())
-            {
-                HideInventory();
-            }
-            else
-            {
-                ShowInventory();
-            }
+            TogglePanelVisibility(inventory);
+        }
+
+        if (Input.GetButtonDown("Pause"))
+        {
+            TogglePanelVisibility(pause);
         }
     }
 
-    private bool IsInventoryVisible() => inventory.alpha == 1;
-
-    private void HideInventory()
+    private void TogglePanelVisibility(CanvasGroup panel)
     {
-        inventory.alpha = 0;
-        inventory.interactable = false;
-        inventory.blocksRaycasts = false;
+        if (IsPanelVisible(panel))
+        {
+            HidePanel(panel);
+        }
+        else
+        {
+            ShowPanel(panel);
+        }
     }
 
-    private void ShowInventory()
+    private bool IsPanelVisible(CanvasGroup panel) => panel.alpha == 1;
+
+    private void HidePanel(CanvasGroup panel)
     {
-        inventory.alpha = 1;
-        inventory.interactable = true;
-        inventory.blocksRaycasts = true;
+        panel.alpha = 0;
+        panel.interactable = false;
+        panel.blocksRaycasts = false;
+    }
+
+    private void ShowPanel(CanvasGroup panel)
+    {
+        panel.alpha = 1;
+        panel.interactable = true;
+        panel.blocksRaycasts = true;
     }
 }
