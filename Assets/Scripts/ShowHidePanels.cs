@@ -13,7 +13,7 @@ public class ShowHidePanels : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I))
+        if(Input.GetKeyDown(KeyCode.I) && !IsPaused())
         {
             TogglePanelVisibility(inventory);
         }
@@ -21,6 +21,7 @@ public class ShowHidePanels : MonoBehaviour
         if (Input.GetButtonDown("Pause"))
         {
             TogglePanelVisibility(pause);
+            ToggleTimeScale();
         }
     }
 
@@ -38,6 +39,8 @@ public class ShowHidePanels : MonoBehaviour
 
     private bool IsPanelVisible(CanvasGroup panel) => panel.alpha == 1;
 
+    private bool IsPaused() => Time.timeScale == 0;
+
     private void HidePanel(CanvasGroup panel)
     {
         panel.alpha = 0;
@@ -50,5 +53,10 @@ public class ShowHidePanels : MonoBehaviour
         panel.alpha = 1;
         panel.interactable = true;
         panel.blocksRaycasts = true;
+    }
+
+    private void ToggleTimeScale()
+    {
+        Time.timeScale = Time.timeScale == 1 ? 0 : 1;
     }
 }
