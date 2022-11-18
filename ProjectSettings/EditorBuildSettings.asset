@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Chapter5StartScreen.unity
     guid: 76445b9c35bf2fb47aff1fd60d7c854b
   - enabled: 1
-    path: Assets/Scenes/Chapter5.unity
-    guid: 9dd280704ffed934da4e7bcb4c584018
+    path: Assets/Scenes/Chapter6AnimatedText.unity
+    guid: 3d7ead1cf6882f3489245bbf68528178
+  - enabled: 1
+    path: Assets/Scenes/Chapter6.unity
+    guid: d27cc0ca5f55a1942a447c871285f4a8
   m_configObjects: {}

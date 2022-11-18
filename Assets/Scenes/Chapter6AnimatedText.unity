@@ -526,7 +526,7 @@ MonoBehaviour:
   _messages:
   - Hello there!
   - I'm a cat and, for some reason, I'm collecting food!
-  _nextScene: Chapter5
+  _nextScene: Chapter6
 --- !u!1 &1773532912
 GameObject:
   m_ObjectHideFlags: 0

@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f7a08c32e5b014daefd9909df04224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelToLoad: Chapter5
+  _levelToLoad: Chapter6AnimatedText
 --- !u!95 &394312537
 Animator:
   serializedVersion: 4
