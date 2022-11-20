@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProgressMeter : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class ProgressMeter : MonoBehaviour
     private uint _totalHealth;
     [SerializeField]
     private RectTransform _healthBar;
+    [SerializeField]
+    private Image _progressMeter;
 
     private void Update()
     {
@@ -17,5 +20,7 @@ public class ProgressMeter : MonoBehaviour
         float percentHealth = (float)_health / _totalHealth;
 
         _healthBar.localScale = new Vector2(percentHealth, 1.0f);
+
+        _progressMeter.fillAmount = percentHealth;
     }
 }
