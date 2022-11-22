@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Chapter6AnimatedText.unity
     guid: 3d7ead1cf6882f3489245bbf68528178
   - enabled: 1
-    path: Assets/Scenes/Chapter6.unity
+    path: Assets/Scenes/Chapter7.unity
     guid: d27cc0ca5f55a1942a447c871285f4a8
   m_configObjects: {}
