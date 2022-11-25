@@ -2365,6 +2365,7 @@ GameObject:
   - component: {fileID: 613233497}
   - component: {fileID: 613233496}
   - component: {fileID: 613233498}
+  - component: {fileID: 613233499}
   m_Layer: 5
   m_Name: CharacterInfoPanel
   m_TagString: Untagged
@@ -2449,6 +2450,20 @@ MonoBehaviour:
   _totalHealth: 100
   _healthBar: {fileID: 715023551}
   _progressMeter: {fileID: 11400931}
+--- !u!114 &613233499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613233494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c21c02fb4803140a958bf6be1fc317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterImage: {fileID: 1056275541}
+  _dropDown: {fileID: 1716939779}
 --- !u!1 &714785882
 GameObject:
   m_ObjectHideFlags: 0
@@ -6710,7 +6725,19 @@ MonoBehaviour:
       m_Image: {fileID: 1073282447, guid: 6ea4f697627974b438fc6d1c8c9cb28a, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 613233499}
+        m_TargetAssemblyTypeName: PlayerCharacterSwap, Assembly-CSharp
+        m_MethodName: OnDropDownValueChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1716939780
 MonoBehaviour:
