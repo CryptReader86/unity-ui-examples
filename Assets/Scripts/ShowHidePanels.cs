@@ -5,55 +5,38 @@ public class ShowHidePanels : MonoBehaviour
     public CanvasGroup inventory;
     public CanvasGroup pause;
 
-    private void Start()
-    {
-        HidePanel(inventory);
-        HidePanel(pause);
-    }
+    public Animator inventoryAnimator;
+    public Animator pauseAnimator;
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.I) && !IsPaused())
         {
-            TogglePanelVisibility(inventory);
+            TogglePanelVisibility(inventory, inventoryAnimator);
         }
 
         if (Input.GetButtonDown("Pause"))
         {
-            TogglePanelVisibility(pause);
+            TogglePanelVisibility(pause, pauseAnimator);
             ToggleTimeScale();
         }
     }
 
-    private void TogglePanelVisibility(CanvasGroup panel)
+    private void TogglePanelVisibility(CanvasGroup panel, Animator animator)
     {
         if (IsPanelVisible(panel))
         {
-            HidePanel(panel);
+            animator.SetTrigger("FadeOut");
         }
         else
         {
-            ShowPanel(panel);
+            animator.SetTrigger("FadeIn");
         }
     }
 
     private bool IsPanelVisible(CanvasGroup panel) => panel.alpha == 1;
 
     private bool IsPaused() => Time.timeScale == 0;
-
-    private void HidePanel(CanvasGroup panel)
-    {
-        panel.alpha = 0;
-        panel.interactable = false;
-        panel.blocksRaycasts = false;
-    }
-
-    private void ShowPanel(CanvasGroup panel)
-    {
-        panel.alpha = 1;
-        panel.interactable = true;
-        panel.blocksRaycasts = true;
-    }
 
     private void ToggleTimeScale()
     {
