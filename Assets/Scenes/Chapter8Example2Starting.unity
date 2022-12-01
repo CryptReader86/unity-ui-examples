@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 63225650}
   - component: {fileID: 63225649}
   - component: {fileID: 63225653}
+  - component: {fileID: 63225654}
   m_Layer: 5
   m_Name: Chest Open Canvas
   m_TagString: Untagged
@@ -242,6 +243,26 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!95 &63225654
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63225648}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8778a88206b4b0b46ac82295ba0bb9c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &66432495
 GameObject:
   m_ObjectHideFlags: 0
@@ -6009,6 +6030,120 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1308850560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308850562}
+  - component: {fileID: 1308850561}
+  - component: {fileID: 1308850563}
+  m_Layer: 0
+  m_Name: StateMachine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1308850561
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308850560}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 508a44bb6f79b744292db7ae032b350e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &1308850562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308850560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 170.75, y: 128, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1308850563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308850560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d60ff2465f2ee4cbcdce539afe67a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animatedItems:
+  - name: Chest Open Canvas
+    animator: {fileID: 63225654}
+    parameters:
+    - name: Show
+      state: CanvasGroupFadeIn
+      type: 3
+      intValue: 0
+      floatValue: 0
+      boolValue: 0
+    - name: Hide
+      state: CanvasGroupFadeOut
+      type: 3
+      intValue: 0
+      floatValue: 0
+      boolValue: 0
+  - name: Chest
+    animator: {fileID: 1789418026}
+    parameters:
+    - name: ShowChest
+      state: ChestFlyingIn
+      type: 3
+      intValue: 0
+      floatValue: 0
+      boolValue: 0
+    - name: OpenChest
+      state: ChestOpening
+      type: 3
+      intValue: 0
+      floatValue: 0
+      boolValue: 0
+    - name: Reset
+      state: Idle
+      type: 3
+      intValue: 0
+      floatValue: 0
+      boolValue: 0
+  - name: 
+    animator: {fileID: 0}
+    parameters: []
+  - name: 
+    animator: {fileID: 0}
+    parameters: []
+  - name: 
+    animator: {fileID: 0}
+    parameters: []
+  - name: 
+    animator: {fileID: 0}
+    parameters: []
 --- !u!1 &1417060942
 GameObject:
   m_ObjectHideFlags: 0
