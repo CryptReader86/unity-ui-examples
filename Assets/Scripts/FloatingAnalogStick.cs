@@ -4,15 +4,28 @@ public class FloatingAnalogStick : MonoBehaviour
 {
     private Vector2 _startingPosition;
 
+    private bool _stickAdded;
+
     [SerializeField]
     private float _dragThreshold = 30;
 
     [SerializeField]
+    private RectTransform _base;
+    [SerializeField]
     private RectTransform _stick;
+    [SerializeField]
+    private CanvasGroup _stickCanvasGroup;
 
     public void StartDrag()
     {
         _startingPosition = Input.mousePosition;
+
+        _base.anchoredPosition = _startingPosition;
+        _stick.anchoredPosition = Vector2.zero;
+
+        _stickAdded = true;
+
+        _stickCanvasGroup.alpha = 1;
     }
 
     public void Drag()
@@ -50,5 +63,22 @@ public class FloatingAnalogStick : MonoBehaviour
     public void EndDrag()
     {
         _stick.anchoredPosition = Vector2.zero;
+    }
+
+    private void Update()
+    {
+        if(_stickAdded)
+        {
+            Drag();
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                _stickAdded = false;
+
+                _stickCanvasGroup.alpha = 0;
+
+                EndDrag();
+            }
+        }
     }
 }
